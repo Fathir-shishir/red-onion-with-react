@@ -11,8 +11,8 @@ const Header = () => {
         </div>
         <div className="col-md-6 d-flex justify-content-end" >
             <nav>
-            <Link className='mx-3 text-decoration-none text-black' to="/about">Log In</Link>
-            <Link className='mx-3  text-decoration-none text-black' to="/about">Sing up</Link>
+            <Link className='mx-3 text-decoration-none text-black' to="/login">Log In</Link>
+            <Link className='mx-3  text-decoration-none text-black' to="/singup">Sing up</Link>
             </nav>
         </div>
             
