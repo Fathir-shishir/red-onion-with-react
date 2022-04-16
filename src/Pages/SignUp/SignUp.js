@@ -11,6 +11,7 @@ const SignUp = () => {
     const[password,setPassword] = useState('')
     const[confirmpassword,setConfirmpassword] = useState('')
     const[error,setError] = useState('')
+    const[terms,setTerms] = useState(false)
 
     const handelNameBlur =event=>{
         setName(event.target.value)
@@ -49,32 +50,35 @@ const SignUp = () => {
    
 
     return (
-        <div className='mt-5'>
+        <div className='mt-3'>
         <p className='text-center'>{error}</p>
-    <Form className='w-50 mx-auto mt-5 border border-3 p-5' onSubmit={handelFromSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form className='w-50 mx-auto mt-4 border border-3 p-5' onSubmit={handelFromSubmit}>
+        <Form.Group className="mb-2" controlId="formBasicEmail">
         <Form.Control onBlur={handelNameBlur} type="text" placeholder="Your Name" required />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-2" controlId="formBasicEmail">
         <Form.Control onBlur={handelEmailBlur} type="email" placeholder="Enter email"  required/>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-2" controlId="formBasicPassword">
         <Form.Control onBlur={handelPasswordlBlur} type="password" placeholder="Password"  required/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-2" controlId="formBasicPassword">
         <Form.Control onBlur={handelConfirmPasswordlBlur} type="password" placeholder="Confirm Password"  required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check onClick={()=>setTerms(!terms)} type="checkbox" className={terms? 'text-primary': 'text-danger'}
+        label="Terms and Condition"  />
         </Form.Group>
          
-        <Button className='d-block mx-auto w-50 text-black btn-success' variant="primary" type="submit">
+        <Button disabled={!terms} className='d-block mx-auto w-50 text-black btn-success' variant="primary" type="submit">
         <h4>Register</h4>
         </Button>
-        <div className='mt-5 w-100'>
-        <AuthWithSocial></AuthWithSocial>
+        <div className='mt-3 w-100'>
+        
         </div>
     </Form>
+    <AuthWithSocial></AuthWithSocial>
     
         </div>
     );
